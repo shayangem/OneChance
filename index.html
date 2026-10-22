@@ -34,13 +34,53 @@ footer{border-top:1px solid #ff33464d;background:#07060be8;text-align:center;pad
 .crest-corner:hover:after{opacity:1;transform:translate(-50%,-50%) scale(1);animation:beamPulse .85s ease-in-out infinite alternate}
 @keyframes beamPulse{from{filter:blur(5px);opacity:.55}to{filter:blur(12px);opacity:1}}
 @media(max-width:650px){.crest-corner{width:145px;right:9px;bottom:9px}.crest-corner:before{inset:-3px}}
+
+/* Premium polish v7 */
+:root{--glass:rgba(12,9,16,.72);--line:rgba(255,65,89,.26)}
+::selection{background:#ff2948;color:#fff}
+body:after{background:radial-gradient(ellipse at 50% 26%,#ff24321f,transparent 53%),linear-gradient(90deg,#000b,transparent 18%,transparent 82%,#000b),linear-gradient(0deg,#050408b8,transparent 42%,#05040850)}
+header{background:rgba(7,5,10,.76);border-bottom:1px solid #ff29485c}
+.nav{min-height:84px}
+.brand img{object-fit:contain;background:#09070b;padding:2px;transition:transform .25s,box-shadow .25s}
+.brand:hover img{transform:rotate(-4deg) scale(1.05);box-shadow:0 0 28px #ff173980}
+nav button{border-radius:8px}
+nav button:hover{background:#ff233f0c}
+.home{position:relative}
+.home:before{content:"";position:absolute;inset:5% 0 0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at center,rgba(10,7,12,.48),transparent 68%)}
+.crest{background:rgba(5,4,8,.4);padding:8px;object-fit:contain;transition:transform .35s,box-shadow .35s}
+.crest:hover{transform:translateY(-5px) scale(1.025);box-shadow:0 0 40px #ff1b3e8c,0 0 100px #ff263f2b}
+.home h1{font-weight:900;text-shadow:0 0 14px #ff193f38,0 0 45px #ff193f25}
+.home .sub{max-width:640px}
+.home-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+.home-cta{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-width:155px;padding:12px 20px;border:1px solid #ff334d;color:#fff;text-decoration:none;background:linear-gradient(120deg,#ff233f25,#16090f9c);font-family:inherit;font-weight:800;font-size:.84rem;transition:transform .22s,box-shadow .22s,background .22s}
+.home-cta.primary{background:linear-gradient(120deg,#ff233f,#b80d2a);border-color:#ff6576;box-shadow:0 0 24px #ff233f38}
+.home-cta:hover{transform:translateY(-3px);box-shadow:0 0 26px #ff233f50;background:linear-gradient(120deg,#ff233f3d,#230b15)}
+.home-cta.primary:hover{background:linear-gradient(120deg,#ff465e,#c51230)}
+.home-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:min(620px,100%);margin-top:30px}
+.home-stat{padding:13px 10px;background:rgba(9,7,12,.62);border:1px solid #ff33452b;backdrop-filter:blur(8px)}
+.home-stat strong{display:block;color:var(--red2);font-size:.78rem;letter-spacing:.08em;direction:ltr}
+.home-stat span{display:block;color:#d6c4cd;font-size:.72rem;margin-top:4px}
+.panel{backdrop-filter:blur(12px);border-radius:3px}
+.rank,.rule,.link,.step{backdrop-filter:blur(8px)}
+.page-head h2{position:relative;display:inline-block;padding-bottom:10px}
+.page-head h2:after{content:"";position:absolute;bottom:0;right:22%;width:56%;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);box-shadow:0 0 12px #ff233f8a}
+.rank-icon{border-radius:12px}
+.link-icon{border-radius:13px}
+.rule{border-radius:3px}
+footer{backdrop-filter:blur(12px)}
+@media(max-width:600px){.home-actions{width:100%;padding:0 6px}.home-cta{flex:1;min-width:135px}.home-stats{gap:6px}.home-stat{padding:10px 5px}.home-stat strong{font-size:.68rem}.home-stat span{font-size:.66rem}.nav{gap:10px}}
+@media(prefers-reduced-motion:reduce){.crest:hover,.brand:hover img,.home-cta:hover{transform:none}}
+
 </style></head>
 <body>
 <a class="crest-corner" href="#home" aria-label="OneChance crest"><img src="./onechance-crest-transparent.png" alt="نشان OneChance"></a><div class="frame" aria-hidden="true"></div>
 <header><div class="nav"><a class="brand" href="#home" data-page="home"><img src="./onechance-logo.jpg" alt="لوگوی OneChance"><span><strong><span>ONE</span>CHANCE</strong><small>OFFICIAL COMMUNITY</small></span></a>
 <nav aria-label="منوی اصلی"><button class="active" data-page="home">خانه</button><button data-page="about">درباره ما</button><button data-page="ranks">رتبه‌ها و مقام‌ها</button><button data-page="rules">قوانین</button><button data-page="contact">ارتباط با ما</button></nav><div class="tagline">یک فرصت، یک خانواده <b>♛</b></div></div></header>
 <main>
-<section class="page home active" id="home"><div class="eyebrow">COMMUNITY · TEAM · VICTORY</div><img class="crest" src="./onechance-logo.jpg" alt="نشان اصلی OneChance"><h1><span>ONE</span>CHANCE</h1><p class="welcome">به سایت رسمی <em>ONECHANCE</em> خوش آمدید</p><p class="sub">دروازه رسمی کامیونیتی؛ برای دیدن بخش‌های مختلف از منوی بالای صفحه استفاده کنید.</p><div class="ornament">◆ ━━━━━━━━━ ◆</div></section>
+<section class="page home active" id="home"><div class="eyebrow">COMMUNITY · TEAM · VICTORY</div><img class="crest" src="./onechance-logo.jpg" alt="نشان اصلی OneChance"><h1><span>ONE</span>CHANCE</h1><p class="welcome">به سایت رسمی <em>ONECHANCE</em> خوش آمدید</p><p class="sub">دروازه رسمی کامیونیتی؛ هویت، قوانین و راه‌های ارتباطی ONECHANCE را از اینجا دنبال کنید.</p>
+<div class="home-actions"><a class="home-cta primary" href="#ranks" data-home-page="ranks">♛ مشاهده رتبه‌ها</a><a class="home-cta" href="#contact" data-home-page="contact">ارتباط با کامیونیتی ↗</a></div>
+<div class="home-stats"><div class="home-stat"><strong>ONE IDENTITY</strong><span>هویت اختصاصی</span></div><div class="home-stat"><strong>ONE COMMUNITY</strong><span>یک کامیونیتی</span></div><div class="home-stat"><strong>ONE CHANCE</strong><span>یک فرصت</span></div></div>
+<div class="ornament">◆ ━━━━━━━━━ ◆</div></section>
 <section class="page" id="about"><div class="page-head"><span class="eyebrow">OUR STORY</span><h2>درباره ما</h2><p>داستان کشور خیالی OneChance</p></div><div class="panel about-copy"><p><strong>ONECHANCE</strong> یک گروه با نامی تخیلی است که برای خودش کشور، پرچم، ساختار حکومتی، مقام‌ها و داستانی اختصاصی دارد. این سرزمین خیالی دنیایی متفاوت است که اعضای آن در کنار یکدیگر بازی می‌کنند، گفتگو می‌کنند و ماجراهای مخصوص خودشان را می‌سازند.</p><p>در مرکز این داستان، سگی به نام <strong>مارشا (MARSHA)</strong> قرار دارد؛ دیکتاتور کشور خیالی OneChance. مارشا شخصیت اصلی این حکومت داستانی است و نمادهای رسمی، پرچم کشور و فضای سلطنتی و حکومتی گروه به او مربوط می‌شوند.</p><p>در ساختار حکومت، هر مقام جایگاه خودش را دارد؛ از DIAMOND GOD و دیکتاتور گرفته تا نخست‌وزیر و مدیریت حکومت. در کنار آن‌ها، کشور رقیبی نیز وجود دارد که پادشاه و نخست‌وزیر مخصوص خود را دارد و به داستان OneChance بُعد دیگری می‌دهد.</p><p>پرچم، نشان اختصاصی، رتبه‌ها و عنوان‌های رسمی این گروه را از یک کامیونیتی معمولی متمایز می‌کنند. این ساختار بخشی از جهان‌سازی و سرگرمی گروه است و حس حضور در یک کشور خیالی با هویت مخصوص خودش را ایجاد می‌کند.</p><p>هدف OneChance گرد هم آوردن اعضا برای <strong>رفاقت، بازی، همکاری و ساختن خاطرات مشترک</strong> است. این داستان با مشارکت اعضا ادامه پیدا می‌کند و هر روز می‌تواند فصل تازه‌ای از ماجراهای کشور خیالی OneChance شکل بگیرد.</p></div></section>
 <section class="page" id="ranks"><div class="page-head"><span class="eyebrow">THE HIERARCHY</span><h2>رتبه‌ها و مقام‌ها</h2><p>ساختار رسمی نقش‌ها در دنیای داستانی OneChance</p></div><div class="ranks">
 <div class="rank" style="--c:#55d9ff"><div class="rank-icon">◆</div><div><div class="rank-title">1. DIAMOND GOD</div><div class="rank-name">SHAYANGEM</div><div class="rank-note">مقام ویژه الماس</div></div></div>
@@ -69,6 +109,7 @@ footer{border-top:1px solid #ff33464d;background:#07060be8;text-align:center;pad
 const pages=[...document.querySelectorAll('.page')], navButtons=[...document.querySelectorAll('nav button[data-page]')];
 function showPage(id){if(!pages.some(p=>p.id===id))id='home';pages.forEach(p=>p.classList.toggle('active',p.id===id));navButtons.forEach(b=>b.classList.toggle('active',b.dataset.page===id));history.replaceState(null,'','#'+id);window.scrollTo({top:0,behavior:'smooth'});}
 navButtons.forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();showPage('home')});
+document.querySelectorAll('[data-home-page]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showPage(a.dataset.homePage)}));
 if(location.hash&&document.querySelector('.page'+location.hash))showPage(location.hash.slice(1));
 const toast=document.getElementById('toast');document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async e=>{e.preventDefault();e.stopPropagation();try{await navigator.clipboard.writeText(b.dataset.copy);toast.textContent='لینک کپی شد';}catch{toast.textContent=b.dataset.copy;}toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}));
 </script></body></html>
