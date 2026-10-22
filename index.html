@@ -95,8 +95,24 @@ footer{backdrop-filter:blur(12px)}
 @media(max-width:600px){.home:before{inset:3% 0}.hero-label{font-size:.59rem}.crest{width:clamp(140px,42vw,190px)}.home h1{font-size:clamp(2.8rem,13vw,4.2rem)}}
 @media(prefers-reduced-motion:reduce){.home:after,.hero-label i,.crest{animation:none!important}}
 
+
+/* ONECHANCE custom cursor */
+@media (hover:hover) and (pointer:fine){
+  body,body *{cursor:none!important}
+  .oc-cursor,.oc-cursor-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;opacity:0;will-change:transform}
+  .oc-cursor{width:30px;height:30px;border:1px solid #ff3a55;border-radius:50%;box-shadow:0 0 10px #ff233f99,inset 0 0 8px #ff233f25;transition:width .18s,height .18s,border-color .18s,background .18s}
+  .oc-cursor:before,.oc-cursor:after{content:"";position:absolute;background:#ff5269;box-shadow:0 0 7px #ff233f}
+  .oc-cursor:before{width:5px;height:1px;left:50%;top:50%;transform:translate(-50%,-50%)}
+  .oc-cursor:after{width:1px;height:5px;left:50%;top:50%;transform:translate(-50%,-50%)}
+  .oc-cursor-dot{width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 8px #ff233f;z-index:10000}
+  .oc-cursor.hover{width:43px;height:43px;border-color:#ff9aa8;background:#ff233f17}
+  .oc-cursor.click{width:23px;height:23px}
+}
+@media (prefers-reduced-motion:reduce){.oc-cursor{transition:none!important}}
+
 </style></head>
 <body>
+<div class="oc-cursor" aria-hidden="true"></div><div class="oc-cursor-dot" aria-hidden="true"></div>
 <a class="crest-corner" href="#home" aria-label="OneChance crest"><img src="./onechance-crest-transparent.png" alt="نشان OneChance"></a><div class="frame" aria-hidden="true"></div>
 <header><div class="nav"><a class="brand" href="#home" data-page="home"><img src="./onechance-logo.jpg" alt="لوگوی OneChance"><span><strong><span>ONE</span>CHANCE</strong><small>OFFICIAL COMMUNITY</small></span></a>
 <nav aria-label="منوی اصلی"><button class="active" data-page="home">خانه</button><button data-page="about">درباره ما</button><button data-page="ranks">رتبه‌ها و مقام‌ها</button><button data-page="rules">قوانین</button><button data-page="contact">ارتباط با ما</button></nav><div class="tagline">یک فرصت، یک خانواده <b>♛</b></div></div></header>
@@ -136,4 +152,19 @@ navButtons.forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
 document.querySelectorAll('[data-home-page]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showPage(a.dataset.homePage)}));
 if(location.hash&&document.querySelector('.page'+location.hash))showPage(location.hash.slice(1));
 const toast=document.getElementById('toast');document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async e=>{e.preventDefault();e.stopPropagation();try{await navigator.clipboard.writeText(b.dataset.copy);toast.textContent='لینک کپی شد';}catch{toast.textContent=b.dataset.copy;}toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}));
+
+/* Custom cursor: desktop only; native touch behavior stays unchanged */
+const ocCursor=document.querySelector('.oc-cursor'),ocDot=document.querySelector('.oc-cursor-dot');
+if(ocCursor&&ocDot&&window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+ let cx=0,cy=0,dx=0,dy=0,shown=false;
+ document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;if(!shown){shown=true;ocCursor.style.opacity='1';ocDot.style.opacity='1';}});
+ function moveCursor(){dx+=(cx-dx)*.28;dy+=(cy-dy)*.28;ocCursor.style.transform='translate3d('+(dx-15)+'px,'+(dy-15)+'px,0)';ocDot.style.transform='translate3d('+(cx-2)+'px,'+(cy-2)+'px,0)';requestAnimationFrame(moveCursor)}
+ requestAnimationFrame(moveCursor);
+ document.addEventListener('mouseover',e=>{if(e.target.closest('a,button,[role="button"],summary'))ocCursor.classList.add('hover');else ocCursor.classList.remove('hover')});
+ document.addEventListener('mousedown',()=>ocCursor.classList.add('click'));
+ document.addEventListener('mouseup',()=>ocCursor.classList.remove('click'));
+ document.addEventListener('mouseleave',()=>{ocCursor.style.opacity='0';ocDot.style.opacity='0';shown=false});
+ document.addEventListener('mouseenter',()=>{if(shown){ocCursor.style.opacity='1';ocDot.style.opacity='1'}});
+}
+
 </script></body></html>
