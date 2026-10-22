@@ -71,13 +71,37 @@ footer{backdrop-filter:blur(12px)}
 @media(max-width:600px){.home-actions{width:100%;padding:0 6px}.home-cta{flex:1;min-width:135px}.home-stats{gap:6px}.home-stat{padding:10px 5px}.home-stat strong{font-size:.68rem}.home-stat span{font-size:.66rem}.nav{gap:10px}}
 @media(prefers-reduced-motion:reduce){.crest:hover,.brand:hover img,.home-cta:hover{transform:none}}
 
+
+/* Cinematic homepage upgrade */
+.home{isolation:isolate;overflow:hidden}
+.home:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.7;background:linear-gradient(115deg,transparent 35%,#ff28450b 48%,#ff28452b 50%,#ff284508 52%,transparent 68%);background-size:230% 100%;animation:heroSweep 9s ease-in-out infinite}
+.home:before{content:"";position:absolute;inset:7% 4%;z-index:-2;pointer-events:none;border:1px solid #ff31441c;clip-path:polygon(0 0,22% 0,22% 1px,78% 1px,78% 0,100% 0,100% 100%,78% 100%,78% calc(100% - 1px),22% calc(100% - 1px),22% 100%,0 100%);background:radial-gradient(ellipse at center,#ff233f12,transparent 67%)}
+@keyframes heroSweep{0%,18%{background-position:130% 0}70%,100%{background-position:-30% 0}}
+.hero-label{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;margin-bottom:18px;border:1px solid #ff3a514a;background:#10080fc9;color:#f3dfe6;font-size:.68rem;letter-spacing:.15em;box-shadow:0 0 22px #ff1b3e12}
+.hero-label i{width:7px;height:7px;border-radius:50%;background:#ff344e;box-shadow:0 0 12px #ff233f;animation:statusPulse 1.7s ease-in-out infinite}
+@keyframes statusPulse{50%{opacity:.4;box-shadow:0 0 3px #ff233f}}
+.crest{position:relative;z-index:1;border:1px solid #ff526a;background:radial-gradient(circle,#1b0a12,#050408 72%);padding:10px;box-shadow:0 0 20px #ff193f66,0 0 55px #ff193f28,inset 0 0 25px #ff193f20;animation:crestFloat 5s ease-in-out infinite,glow 2.5s ease-in-out infinite alternate}
+@keyframes crestFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.home h1{position:relative;letter-spacing:.11em;font-size:clamp(3rem,9vw,6.8rem);text-shadow:0 0 12px #ff193f60,0 0 38px #ff193f42,0 0 85px #ff193f16}
+.home h1:after{content:"";display:block;width:min(290px,65%);height:2px;margin:12px auto 0;background:linear-gradient(90deg,transparent,#ff314f,transparent);box-shadow:0 0 13px #ff233f}
+.welcome{margin-top:20px}
+.home .sub{max-width:620px}
+.home-actions{margin-top:28px}
+.home-cta{min-height:47px;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));}
+.home-stats{margin-top:30px}
+.home-stat{position:relative;overflow:hidden}
+.home-stat:before{content:"";position:absolute;top:0;left:18%;right:18%;height:1px;background:linear-gradient(90deg,transparent,#ff5269,transparent)}
+.ornament{font-size:.75rem;opacity:.8}
+@media(max-width:600px){.home:before{inset:3% 0}.hero-label{font-size:.59rem}.crest{width:clamp(140px,42vw,190px)}.home h1{font-size:clamp(2.8rem,13vw,4.2rem)}}
+@media(prefers-reduced-motion:reduce){.home:after,.hero-label i,.crest{animation:none!important}}
+
 </style></head>
 <body>
 <a class="crest-corner" href="#home" aria-label="OneChance crest"><img src="./onechance-crest-transparent.png" alt="نشان OneChance"></a><div class="frame" aria-hidden="true"></div>
 <header><div class="nav"><a class="brand" href="#home" data-page="home"><img src="./onechance-logo.jpg" alt="لوگوی OneChance"><span><strong><span>ONE</span>CHANCE</strong><small>OFFICIAL COMMUNITY</small></span></a>
 <nav aria-label="منوی اصلی"><button class="active" data-page="home">خانه</button><button data-page="about">درباره ما</button><button data-page="ranks">رتبه‌ها و مقام‌ها</button><button data-page="rules">قوانین</button><button data-page="contact">ارتباط با ما</button></nav><div class="tagline">یک فرصت، یک خانواده <b>♛</b></div></div></header>
 <main>
-<section class="page home active" id="home"><div class="eyebrow">COMMUNITY · TEAM · VICTORY</div><img class="crest" src="./onechance-logo.jpg" alt="نشان اصلی OneChance"><h1><span>ONE</span>CHANCE</h1><p class="welcome">به سایت رسمی <em>ONECHANCE</em> خوش آمدید</p><p class="sub">دروازه رسمی کامیونیتی؛ هویت، قوانین و راه‌های ارتباطی ONECHANCE را از اینجا دنبال کنید.</p>
+<section class="page home active" id="home"><div class="hero-label"><i aria-hidden="true"></i><span>OFFICIAL COMMUNITY · EST. ONECHANCE</span></div><div class="eyebrow">COMMUNITY · TEAM · VICTORY</div><img class="crest" src="./onechance-logo.jpg" alt="نشان اصلی OneChance"><h1><span>ONE</span>CHANCE</h1><p class="welcome">به سایت رسمی <em>ONECHANCE</em> خوش آمدید</p><p class="sub">دروازه رسمی کامیونیتی؛ هویت، قوانین و راه‌های ارتباطی ONECHANCE را از اینجا دنبال کنید.</p>
 <div class="home-actions"><a class="home-cta primary" href="#ranks" data-home-page="ranks">♛ مشاهده رتبه‌ها</a><a class="home-cta" href="#contact" data-home-page="contact">ارتباط با کامیونیتی ↗</a></div>
 <div class="home-stats"><div class="home-stat"><strong>ONE IDENTITY</strong><span>هویت اختصاصی</span></div><div class="home-stat"><strong>ONE COMMUNITY</strong><span>یک کامیونیتی</span></div><div class="home-stat"><strong>ONE CHANCE</strong><span>یک فرصت</span></div></div>
 <div class="ornament">◆ ━━━━━━━━━ ◆</div></section>
